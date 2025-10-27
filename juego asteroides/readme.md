@@ -1,10 +1,3 @@
-metadata
+juegoAsteroides by BorjaCode Studio.
 
-title: asteroids
-emoji: 🐳
-colorFrom: blue
-colorTo: blue
-sdk: static
-pinned: false
-tags:
-  - deepsite
+HTML, CSS
