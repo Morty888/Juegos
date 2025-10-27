@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Juego Adelina Marketing - Estelar</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Carga un archivo CSS que está en internet, concretamente en el servicio cdnjs (Content Delivery Network) pertenece a la librería FONT AWESOME, 
+     contiene todos los ICONOS y sus estilos
+     FONT AWESOME   -> es una biblioteca de iconos vectoriales (en formato de fuente e SVG, NO SON IMÁGENES).
+     CDNJS          -> es un repositorio/CDN"-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+</style>
+</head>
+<body>
+
+<header>
+  <br><br>
+  <h1>🎯 Juego Adelina Marketing</h1>
+  <br>
+  <p>Haz clic encima de los iconos y contrata todas las Redes Sociales que puedas con <strong>MARKETING ADELINA!!</strong> para sumar puntos. </p>
+  <P>Evita la 💩, perderás los puntos. Cada 10 puntos sube el nivel y se acelera la velocidad!!.</P>
+</header>
+
+<div class="hud-container">
+  <div id="hud1">Puntos: 0</div>
+  <div id="hud2">Nivel: 1</div>
+</div>
+
+
+<div id="gameWrapper">     <!-- pantalla juego -->
+  <div id="gameArea">      <!-- fondo de estrellas -->
+    <canvas id="starCanvas"></canvas> <!-- CANVAS -> Es un elemento de HTML5 que funciona como un lienzo en blanco sobre el que puedes dibujar gráficos dinámicamente con JavaScript -->
+    <!-- iconos se añadirán aquí -->
+  </div>
+
+  <div id="controls" style="margin-top:12px; justify-content:center;">
+    <button id="startBtn">▶ Iniciar Juego</button>
+
+    <button id="musicToggle" class="secondary" disabled>
+      🎵 Música: <span id="musicState">OFF</span>
+      <span id="musicLed" class="led off"></span>
+    </button>
+
+    <button id="resetBtn" class="secondary">🔄 Reiniciar</button>
+  </div>
+</div>
+
+<br>
+<footer>
+  <p>Aplicación Web creada por <a href="http://www.borjacode.com" target="_blank" rel="noopener noreferrer">  &nbsp;&nbsp;-=/ BorjaCode Studio /=-</a></p>
+</footer>
+
+<!-- Audios: intenta primero fuente local (sounds/...), si no, fallback remoto -->
+<audio id="musicaFondo" loop preload="auto">
+  <source src="sounds/tono.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/audio/2022/10/21/audio_6e0f0f6a9d.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sonidoAcierto" preload="auto">
+  <source src="sounds/yes.mp3" type="audio/mpeg">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="sonidoFallo" preload="auto">
+  <source src="sounds/fail.mp3" type="audio/mpeg">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-failure-arcade-alert-notification-240.mp3" type="audio/mpeg">
+</audio>
+
+
+
+<script src="script.js"> </script>
+  
+</body>
+</html>

@@ -1,0 +1,137 @@
+:root{ --accent:#256D85; --btn:#FEAA6A; --hud-white: #ffffffcc; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1220;
+    color: #fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:24px;
+    min-height:100vh;
+    box-sizing:border-box;
+  }
+
+  header { text-align:center; margin-bottom:8px; }
+  h1 { color: #FEAA6A; margin:6px 0; }
+  p { color:#e6f7f7; max-width:820px; text-align:center; margin:6px 0 18px; font-size:20px; }
+
+  .hud-container {
+  display: flex;
+  justify-content: space-between; /* separa uno a la izquierda y otro a la derecha */
+  align-items: center; /* centra verticalmente */
+  width: 38%; /* separación de los contadores */
+}
+
+#hud1, #hud2 {
+  background: #FEAA6A;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+
+  /* Contenedor del juego centrado */
+  #gameWrapper {
+    width: 860px;               /* ancho del recuadro (más grande) */
+    max-width: calc(100vw - 40px);
+    background: linear-gradient(180deg,#07111a,#0b1720);
+    border-radius:12px;
+    padding:12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 3px solid rgba(37,109,133,0.15);
+  }
+
+  #gameArea {
+    width: 800px;
+    height: 500px;
+    max-width: 100%;
+    background: radial-gradient(ellipse at center, rgba(13,45,61,0.12) 0%, rgba(5,10,18,0.45) 100%);  /* estrellas* + CANVAS para crear el fondo*/
+    border-radius:10px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px auto 0;
+    box-sizing: border-box;
+    border: 2px solid rgba(255,255,255,0.03);
+  }
+ 
+  /* Canvas de estrellas (detrás) */
+  #starCanvas { position:absolute; left:0; top:0; width:100%; height:100%; z-index:1; }
+
+  /* Los iconos van por encima */
+  .icono {
+    position: absolute;
+    font-size: 64px; /* más grandes */
+    cursor: pointer;
+    z-index: 5;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: transform 0.14s linear;
+    pointer-events: auto;
+  }
+  .icono:hover { transform: scale(1.18); }
+
+  /* HUD superior (fuera del canvas) */
+  #controls { display:flex; gap:10px; align-items:center; justify-content:center; margin-top:8px; flex-wrap:wrap; }
+  button { background: var(--btn); color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
+  button.secondary { background:#2c3e50; padding:8px 12px; }
+
+  /* Indicador piloto */
+  .led {
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    margin-left:8px;
+    vertical-align:middle;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4) inset;
+  }
+  .led.on { background: #1ed760; box-shadow: 0 0 8px #1ed760; }
+  .led.off { background: red; box-shadow: none; opacity:0.6; }
+
+  footer a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none; /* quitar subrayado */
+}
+
+footer a:hover {
+  color: #A260F2;
+} 
+
+  /* Responsivo pequeño */
+  @media (max-width:880px) {
+    #gameWrapper { width: 96%; padding:8px; }
+    #gameArea { height: 420px; }
+    .icono { font-size: 52px; }
+  }
+  @media (max-width:420px) {
+    #gameArea { height: 340px; }
+    .icono { font-size: 44px; }
+  }
+
+  
+  /* --- Responsivo HUD y footer --- */
+@media (max-width:600px) {
+  .hud-container {
+    width: 100%;            /* ocupa todo el ancho */
+    flex-direction: column;  /* apila verticalmente los contadores */
+    gap: 2px;               /* separación entre ellos */
+    align-items: center;    /* centrado horizontal */
+    margin-bottom: 12px;
+  }
+  #hud1, #hud2 {
+    font-size: 16px;        /* más pequeño en móvil */
+    padding: 8px 14px;
+    width: auto;            /* que no tenga ancho fijo */
+    text-align: center;
+  }
+
+  footer p {
+    text-align: center;      /* centra el texto del footer */
+    font-size: 26px;         /* ajusta tamaño en móvil */
+    margin: 12px 0;
+  }
+}
