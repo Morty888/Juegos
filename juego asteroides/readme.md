@@ -1,3 +1,4 @@
 juegoAsteroides by BorjaCode Studio.
 
-HTML, CSS
+HTML, CSS, JS
+
