@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniJuego de Frases</title>
+<style>
+  body {
+    background: linear-gradient(120deg, #256D85, #6EA9B3);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .frase-box {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 100px;
+    width: 80%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    animation: fadeIn 0.5s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .botones {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  button {
+    background: #FEAA6A;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+    font-weight: bold;
+  }
+  button:hover {
+    background: #f88f3f;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+
+<h1>🎯 MiniJuego de Frases</h1>
+<div class="frase-box" id="frase">Pulsa un botón para empezar</div>
+
+<div class="botones">
+  <button onclick="nuevaFrase('romanticas')">💘 Románticas</button>
+  <button onclick="nuevaFrase('frikis')">💻 Frikis</button>
+  <button onclick="nuevaFrase('locas')">🤪 Locas</button>
+</div>
+
+<script>
+const frases = {
+  romanticas: [
+    "Si fueras una variable, serías constante... en mi vida ❤️",
+    "No eres Google, pero tienes todo lo que busco.",
+    "Si tu sonrisa fuera código, no tendría bugs."
+  ],
+  frikis: [
+    "¿Eres un bug? Porque no puedo dejar de buscarte.",
+    "Tienes más estilo que un CSS bien hecho.",
+    "Eres el script que da vida a mi HTML."
+  ],
+  locas: [
+    "Si fueras pizza, serías con extra de todo 🍕",
+    "Me gustas más que un día sin reuniones.",
+    "Eres como el WiFi: cuando estás cerca, todo funciona mejor."
+  ]
+};
+
+function nuevaFrase(tipo) {
+  const lista = frases[tipo];
+  const frase = lista[Math.floor(Math.random() * lista.length)];
+  const fraseBox = document.getElementById('frase');
+  
+  fraseBox.style.animation = 'none';
+  fraseBox.offsetHeight; // reinicia animación
+  fraseBox.style.animation = 'fadeIn 0.5s ease';
+  
+  fraseBox.textContent = frase;
+}
+</script>
+
+</body>
+</html>
